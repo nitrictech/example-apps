@@ -12,4 +12,4 @@ Each example can be deployed with Nitric for AWS, GCP and Azure.
 
 | Project Name        | Description            |
 | --------------------| -----------------------|
-| [Name]()            | ...                    |
+| [example-go-schedule](https://github.com/asalkeld/example-go-schedule) | simple example on how to use schedules in Go |
