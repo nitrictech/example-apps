@@ -1,0 +1,16 @@
+{
+  "name": "typescript-starter",
+  "version": "1.0.0",
+  "description": "nitric typescript starter template",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@nitric/sdk": "latest",
+    "jsonwebtoken": "^8.5.1",
+    "keypair": "^1.0.4",
+    "short-uuid": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.8"
+  }
+}

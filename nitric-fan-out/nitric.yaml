@@ -1,0 +1,3 @@
+name: nitric-fan-out
+handlers:
+- functions/*.ts
