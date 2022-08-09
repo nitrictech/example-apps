@@ -1,0 +1,3 @@
+name: Nitric-DynamicLoad
+handlers:
+- functions/*.ts
