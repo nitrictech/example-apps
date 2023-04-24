@@ -1,11 +1,17 @@
-import { inventoryApi, products, imageBucket, inventoryPub, recognize } from "../common/resources";
+import {
+  inventoryApi,
+  products,
+  imageBucket,
+  inventoryPub,
+  recognize,
+} from "../common/resources";
 import { uuid } from "uuidv4";
 
 // Define our profile contents
 interface Product {
   name: string;
   description: string;
-  url: string; 
+  url: string;
   labels: string;
   rekognition: boolean;
 }
@@ -18,13 +24,13 @@ inventoryApi.post("/products", async (ctx) => {
     description: ctx.req.json().description,
     url: "",
     labels: "",
-    rekognition: false
+    rekognition: false,
   };
 
   // Create the new product
   await products.doc(id).set(product);
 
-  // Notify 
+  // Notify
   const subject = `New product in inventory`;
   const template = `<!DOCTYPE html PUBLIC>
   <html lang="en">
@@ -38,13 +44,13 @@ inventoryApi.post("/products", async (ctx) => {
   </html>`;
 
   await inventoryPub.publish({
-      payload: {
-          recipient: process.env.SYS_ADMIN_EMAIL,
-          subject: subject,
-          template: template,
-          data: product
-      },
-    });
+    payload: {
+      recipient: process.env.SYS_ADMIN_EMAIL,
+      subject: subject,
+      template: template,
+      data: product,
+    },
+  });
 
   // Return the id
   ctx.res.json({
@@ -54,18 +60,18 @@ inventoryApi.post("/products", async (ctx) => {
 
 // Retrieve profile with get method
 inventoryApi.get("/products/:id", async (ctx) => {
-  const { id } = ctx.req.params
+  const { id } = ctx.req.params;
 
   try {
     const image = imageBucket.file(`images/${id}/photo.png`);
-    const product = await products.doc(id).get()
-    product.url = await image.getDownloadUrl()
+    const product = await products.doc(id).get();
+    product.url = await image.getDownloadUrl();
 
-    if (!product.rekognition) { 
-      const labels = await recognize(image.name, process.env.BUCKETNAME)
-      if (labels) { 
-        product.labels = labels
-        product.rekognition = true
+    if (!product.rekognition) {
+      const labels = await recognize(image.name);
+      if (labels) {
+        product.labels = labels;
+        product.rekognition = true;
       }
     }
     return ctx.res.json(product);
@@ -84,22 +90,19 @@ inventoryApi.get("/products", async (ctx) => {
   });
 });
 
-inventoryApi.get('/products/:id/image/upload', async (ctx) => {
-  const { id }  = ctx.req.params;
+inventoryApi.get("/products/:id/image/upload", async (ctx) => {
+  const { id } = ctx.req.params;
 
   // Return a signed url reference for upload
   const image = imageBucket.file(`images/${id}/photo.png`);
-  const photoUrl = await image.getUploadUrl()
+  const photoUrl = await image.getUploadUrl();
 
   // Invalidate labels, so they are recalculated
-  const product = await products.doc(id).get()
-  product.rekognition = false
-  product.labels = ""
+  const product = await products.doc(id).get();
+  product.rekognition = false;
+  product.labels = "";
 
   ctx.res.json({
     url: photoUrl,
   });
 });
-
-
-

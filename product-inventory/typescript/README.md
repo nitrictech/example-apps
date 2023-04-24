@@ -1,24 +1,17 @@
 <p align="center">
   <a href="https://nitric.io">
-    <img src="docs/assets/nitric-logo.svg" width="120" alt="Nitric Logo"/>
+    <img src="https://github.com/nitrictech/nitric/raw/develop/docs/assets/nitric-logo.svg" width="120" alt="Nitric Logo"/>
   </a>
 </p>
 
-<p align="center">
-  A fast & fun way to build portable cloud-native applications
-</p>
+<h3 align="center">A cloud framework with infrastructure in code</h3>
 
 <p align="center">
-  <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?sort=semver">
-  <img alt="GitHub" src="https://img.shields.io/github/license/nitrictech/nitric">
-  <!-- <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/nitrictech/cli/total"> -->
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/nitrictech/nitric/Tests?label=build">
-  <img alt="codecov" src="https://codecov.io/gh/nitrictech/nitric/branch/develop/graph/badge.svg?token=20TYFIQS2P">
-  <!-- <a href="" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a> -->
-  <a href="https://twitter.com/nitric_io">
-    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/nitric_io?label=Follow&style=social">
-  </a>
-  <a href="https://discord.gg/Webemece5C"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord"></a>
+  <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?style=for-the-badge">
+  <img alt="GitHub" src="https://img.shields.io/github/license/nitrictech/nitric?style=for-the-badge">
+  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/nitrictech/nitric/test.yaml?branch=develop&style=for-the-badge">
+  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/nitrictech/nitric?style=for-the-badge">
+  <a href="https://discord.gg/Webemece5C"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord&style=for-the-badge"></a>
 </p>
 
 ## Project Description
@@ -46,26 +39,30 @@ AWS_SES_SECRET_ACCESS_KEY="..."
 
 SENDER_EMAIL="..."
 SYS_ADMIN_EMAIL="..."
-
-BUCKETNAME="images-{{bucket-id}}"
 ```
 
-> Note: Get the {{bucket-id}} from the created resource in S3 AWS Console.
+> Note: Get the {{bucket-id}} from the created resource in S3 AWS Console - this is required by the request to Rekognition.
 > Note: You'll need to whitelist these emails with amazon to send emails.
 
 ### Step 3: Run the API locally with Nitric
 
 ```bash
 yarn install
-nitric run
+yarn run dev
 ```
 
-### Step 4: Consume the API
+### Step 4: Deploy to the cloud
+
+```bash
+nitric up
+```
+
+### Step 5: Consume the API
 
 Create a product
 
 ```bash
-curl --location --request POST '{{url}}' \
+curl --location --request POST 'https://XXXXXXXXXXXXXX.amazonaws.com/products' \
 --header 'Content-Type: text/plain' \
 --data-raw '{
     "name": "Dog",
