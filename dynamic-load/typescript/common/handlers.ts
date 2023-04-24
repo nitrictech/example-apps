@@ -1,10 +1,4 @@
-import { api } from "@nitric/sdk";
-
-// Create a secure api
-const animalsApi = api("main");
-
-// Create and expose a GET method on our api
-animalsApi.get("/hello/:animal", async (ctx) => {
+export const speak = async (ctx) => {
   const { animal } = ctx.req.params;
   try {
     // Dynamically load the module
@@ -18,4 +12,4 @@ animalsApi.get("/hello/:animal", async (ctx) => {
     });
     ctx.res.status = 501;
   }
-});
+};
