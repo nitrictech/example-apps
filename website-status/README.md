@@ -21,6 +21,42 @@
   <a href="https://discord.gg/Webemece5C"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord"></a>
 </p>
 
+## Project Description
+
+Ping a website to determine if it's status is offline or online.
+
+## Usage
+
+### Step 1: Install Nitric
+
+Follow the steps in the [installation guide](https://nitric.io/docs/installation)
+
+### Step 2: Run your project locally Nitric
+
+Refer to the README located in the language specific version of this project.
+
+### Step 3: Test the API
+
+Valid URL
+
+```bash
+curl --location 'http://localhost:4001/ping' \
+--header 'Content-Type: text/plain' \
+--data '{
+    "url":"www.google.com"
+}'
+```
+
+Invalid URL
+
+```bash
+curl --location 'http://localhost:4001/ping' \
+--header 'Content-Type: text/plain' \
+--data '{
+    "url":"www.invalidurl123.com"
+}'
+```
+
 ## About Nitric
 
 [Nitric](https://nitric.io) is a framework for rapid development of cloud-native and serverless applications. Define your apps in terms of the resources they need, then write the code for serverless function based APIs, event subscribers and scheduled jobs.
@@ -47,45 +83,3 @@ We're completely opensource and encourage [code contributions](https://nitric.io
 - Find us on [Twitter](https://twitter.com/nitric_io)
 
 - Send us an [email](mailto:maintainers@nitric.io)
-
-
-## Project Description
-
-Dynamically load modules for use in a sample API developed with Nitric.
-
-## Usage
-
-### Step 1: Install Nitric
-
-Follow the steps in the [installation guide](https://nitric.io/docs/installation)
-
-<br/>
-
-### Step 2: Run the API locally with Nitric
-
-```bash
-yarn install
-nitric run
-```
-
-### Step 3: Consume the API
-
-```bash
-curl http://localhost:9001/apis/main/hello/cat
-```
-
-```bash
-{"message":"meow"}
-```
-
-```bash
-curl http://localhost:9001/apis/main/hello/donkey
-```
-
-```bash
-{"message":"No greeting module found for animal - donkey"}
-```
-
-## What's next?
-
-Explore the [Nitric framework](https://nitric.io/docs) to learn how to deploy to the cloud and much more.

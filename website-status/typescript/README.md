@@ -48,7 +48,6 @@ We're completely opensource and encourage [code contributions](https://nitric.io
 
 - Send us an [email](mailto:maintainers@nitric.io)
 
-
 ## Project Description
 
 Dynamically load modules for use in a sample API developed with Nitric.
@@ -65,25 +64,7 @@ Follow the steps in the [installation guide](https://nitric.io/docs/installation
 
 ```bash
 yarn install
-nitric run
-```
-
-### Step 3: Consume the API
-
-```bash
-curl http://localhost:9001/apis/main/hello/cat
-```
-
-```bash
-{"message":"meow"}
-```
-
-```bash
-curl http://localhost:9001/apis/main/hello/donkey
-```
-
-```bash
-{"message":"No greeting module found for animal - donkey"}
+yarn run dev
 ```
 
 ## What's next?
