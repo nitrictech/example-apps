@@ -1,0 +1,3 @@
+name: python
+handlers:
+- functions/*.py
