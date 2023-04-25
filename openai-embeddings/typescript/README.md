@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://nitric.io">
-    <img src="docs/assets/nitric-logo.svg" width="120" alt="Nitric Logo"/>
+    <img src="https://raw.githubusercontent.com/nitrictech/nitric/main/docs/assets/nitric-logo.svg" width="120" alt="Nitric Logo"/>
   </a>
 </p>
 
