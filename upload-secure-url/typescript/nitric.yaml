@@ -1,0 +1,3 @@
+name: secure-bucket-access
+handlers:
+- functions/*.ts

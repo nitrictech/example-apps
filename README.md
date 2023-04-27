@@ -12,10 +12,11 @@ Here you'll find examples writen with various languages including python and typ
 
 | Project Name                              | Description                                                                   |
 | ----------------------------------------- | ----------------------------------------------------------------------------- |
-| [website status](./website-status/)       | Perform a ping to check tosee if URL is available                             |
+| [website-status](./website-status/)       | Perform a ping to check tosee if URL is available                             |
 | [fan out](./fan-out/)                     | An example of fanning out processing for a simple multi-tenant application    |
-| [openai-embeddings](./openai-embeddings/) | Populate & Query a vector db with embeddings of the nitric docs from openai   |
+| [openai-embeddings](./openai-embeddings/) | Populate and query a vector db with embeddings of the nitric docs from openai |
 | [middleware demo](./middleware-demo/)     | A simple example of middleware handlers                                       |
 | [inventory](./producct-inventory/)        | Simple inventory with image upload and labels generation with AWS Rekognition |
 | [user-onboarding](./user-onboarding/)     | Onboard a user and send them an email with AWS SES                            |
 | [dynamic-load](./dynamic-load/)           | A simple example of loading a node js resource dynamically within an API      |
+| [upload-secure-url](./upload-secure-url/) | Generate URLs to upload and download securely and directly from a Bucket      |
