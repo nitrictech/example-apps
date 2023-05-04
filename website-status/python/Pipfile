@@ -4,7 +4,7 @@ verify_ssl = true
 name = "python starter"
 
 [packages]
-nitric = "==0.9.1"
+nitric = "==0.11.0"
 common = {editable = true, path = "./common"}
 pytest = "*"
 

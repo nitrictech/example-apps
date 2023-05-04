@@ -1,4 +1,4 @@
-import { cerebro, openai, supabase } from "../common/resources";
+import { docsApi, openai, supabase } from "../common/resources";
 import { inspect } from "util";
 
 import {
@@ -7,7 +7,7 @@ import {
   walk,
 } from "../common/helper";
 
-cerebro.get("/learn", async (ctx) => {
+docsApi.get("/learn", async (ctx) => {
   const embeddingSources: EmbeddingSource[] = [
     ...(await walk("pages"))
       .filter(({ path }) => /\.md?$/.test(path))

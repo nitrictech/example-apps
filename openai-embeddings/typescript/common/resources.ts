@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { Configuration, OpenAIApi } from "openai";
 import { Database } from "../db_types";
 
-export const cerebro = api("main");
+export const docsApi = api("openai");
 
 // OpenAI configuration creation
 const configuration = new Configuration({

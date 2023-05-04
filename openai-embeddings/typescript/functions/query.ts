@@ -1,9 +1,9 @@
 import { CreateCompletionRequest } from "openai";
 import { oneLine, codeBlock } from "common-tags";
 import GPT3Tokenizer from "gpt3-tokenizer";
-import { cerebro, openai, supabase } from "../common/resources";
+import { docsApi, openai, supabase } from "../common/resources";
 
-cerebro.post("/query", async (ctx) => {
+docsApi.post("/query", async (ctx) => {
   let query = ctx.req.json().query;
 
   // Moderate the content to comply with OpenAI T&C
