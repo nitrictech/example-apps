@@ -23,4 +23,4 @@ Here you'll find examples writen with various languages including python and typ
 | [graphql-profile-api](./profile-api-graphql/)     | Use GraphQL to Create a reliable, scalable, and performant HTTP endpoint      |
 | [semantic-simliarities](./semantic-simliarities/) | Compare a query vector with a vectorized dictionary for similarities          |
 | [stripe-payments](./stripe-payments/)             | Simple example of setting up and redirecting to a stripe payment gateway.     |
-|  |
+| [cockroach-example](./cockroach-example/)         | Simple example of connecting to and adding entries into a cockroach db.       |
