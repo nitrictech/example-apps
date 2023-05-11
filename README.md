@@ -22,3 +22,5 @@ Here you'll find examples writen with various languages including python and typ
 | [upload-secure-url](./upload-secure-url/)         | Generate URLs to upload and download securely and directly from a Bucket      |
 | [graphql-profile-api](./profile-api-graphql/)     | Use GraphQL to Create a reliable, scalable, and performant HTTP endpoint      |
 | [semantic-simliarities](./semantic-simliarities/) | Compare a query vector with a vectorized dictionary for similarities          |
+| [stripe-payments](./stripe-payments/)             | Simple example of setting up and redirecting to a stripe payment gateway.     |
+|  |
