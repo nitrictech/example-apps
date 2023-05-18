@@ -10,11 +10,6 @@
 
 <p align="center">
   <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?sort=semver">
-  <img alt="GitHub" src="https://img.shields.io/github/license/nitrictech/nitric">
-  <!-- <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/nitrictech/cli/total"> -->
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/nitrictech/nitric/Tests?label=build">
-  <img alt="codecov" src="https://codecov.io/gh/nitrictech/nitric/branch/develop/graph/badge.svg?token=20TYFIQS2P">
-  <!-- <a href="" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a> -->
   <a href="https://twitter.com/nitric_io">
     <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/nitric_io?label=Follow&style=social">
   </a>
@@ -39,10 +34,20 @@ Create .env file based on the template and update the OpenAI key - you'll need t
 
 ### Step 3: Run the API locally with Nitric
 
+Start nitric services:
+
 ```bash
-pipenv install
+nitric start
+```
+
+Install dependencies and run your project:
+
+```bash
+pipenv install --dev
 pipenv run dev
 ```
+
+You'll see your services connect in your nitric start terminal.
 
 ### Step 4: Consume the API
 

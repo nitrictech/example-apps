@@ -18,9 +18,7 @@
 
 ## Project Description
 
-An example of fanning out processing for a simple multi-tenant application using messaging events.
-
-![diagram](./diagram.png)
+Simple & secure direct-to-bucket (e.g. S3) file uploads from modern browsers with signed URLs.
 
 ## Usage
 
@@ -30,14 +28,25 @@ Follow the steps in the [installation guide](https://nitric.io/docs/installation
 
 ### Step 2: Run your project locally Nitric
 
-```bash
-yarn install
-yarn run dev
-```
+Refer to the README located in the language specific version of this project.
 
 ### Step 3: Test the API
 
-There is a scheduled service running each hour. This means you'll have to manually trigger the service to test offline.
+Upload url -
+
+```bash
+curl localhost:4001/images/abc/upload
+
+{"url":"http://localhost:38501/images/images/abc/photo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=dummykey%2F20230427%2F%2Fs3%2Faws4_request&X-Amz-Date=20230427T185305Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&x-id=PutObject&X-Amz-Signature=fbf8413a9af86fc7f0a1d69a82d8044f0405f10b0fdba14689c4cb69f07aab6e"}
+```
+
+Download url -
+
+```bash
+curl localhost:4001/images/abc/download
+
+{"url":"http://localhost:38501/images/images/abc/photo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=dummykey%2F20230427%2F%2Fs3%2Faws4_request&X-Amz-Date=20230427T185308Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2e56d424426c14841b0d64077795319efa893d8f859ddfd1c82726d8e5498226"}%
+```
 
 ## About Nitric
 

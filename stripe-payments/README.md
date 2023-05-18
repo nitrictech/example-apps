@@ -18,9 +18,7 @@
 
 ## Project Description
 
-An example of fanning out processing for a simple multi-tenant application using messaging events.
-
-![diagram](./diagram.png)
+Create an API which implements payments using the Stripe payments gateway via a redirect.
 
 ## Usage
 
@@ -28,16 +26,17 @@ An example of fanning out processing for a simple multi-tenant application using
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-### Step 2: Run your project locally Nitric
+### Step 2: Configure Stripe key
 
-```bash
-yarn install
-yarn run dev
-```
+Create a .env file from .env.template and update the key. The default is a test key.
 
-### Step 3: Test the API
+### Step 3: Run the API locally with Nitric
 
-There is a scheduled service running each hour. This means you'll have to manually trigger the service to test offline.
+Refer to the README located in the language specific version of this project.
+
+### Step 4: Run your project.
+
+Visit https://localhost:4001/payment in a browser of your choice to see your payment gateway.
 
 ## About Nitric
 

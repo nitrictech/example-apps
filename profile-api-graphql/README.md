@@ -28,22 +28,7 @@ Follow the steps in the [installation guide](https://nitric.io/docs/installation
 
 ### Step 2: Run the API locally with Nitric
 
-Start nitric services:
-
-```bash
-nitric start
-```
-
-Install dependencies and run your project:
-
-```bash
-pipenv install --dev
-pipenv run dev
-```
-
-You'll see your services connect in your nitric start terminal.
-
-> This will automatically restart when you make changes to your functions
+Refer to the README located in the language specific version of this project.
 
 ### Step 3: Run your project.
 

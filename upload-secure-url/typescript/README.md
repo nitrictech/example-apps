@@ -10,11 +10,6 @@
 
 <p align="center">
   <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?sort=semver">
-  <img alt="GitHub" src="https://img.shields.io/github/license/nitrictech/nitric">
-  <!-- <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/nitrictech/cli/total"> -->
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/nitrictech/nitric/Tests?label=build">
-  <img alt="codecov" src="https://codecov.io/gh/nitrictech/nitric/branch/develop/graph/badge.svg?token=20TYFIQS2P">
-  <!-- <a href="" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a> -->
   <a href="https://twitter.com/nitric_io">
     <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/nitric_io?label=Follow&style=social">
   </a>
@@ -23,7 +18,7 @@
 
 ## Project Description
 
-Simple & secure direct-to-bucket uploads from modern browsers with signed URLs
+Simple & secure direct-to-bucket (e.g. S3) file uploads from modern browsers with signed URLs.
 
 ## Usage
 
@@ -31,18 +26,14 @@ Simple & secure direct-to-bucket uploads from modern browsers with signed URLs
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-<br/>
-
-### Step 2: Run the API locally with Nitric
+### Step 2: Run your project locally Nitric
 
 ```bash
 yarn install
 yarn run dev
 ```
 
-> Note: There is a scheduled service running each hour. This means you'll have to manually trigger the service to test offline.
-
-### Step:3 Test
+### Step 3: Test the API
 
 Upload url -
 
@@ -59,10 +50,6 @@ curl localhost:4001/images/abc/download
 
 {"url":"http://localhost:38501/images/images/abc/photo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=dummykey%2F20230427%2F%2Fs3%2Faws4_request&X-Amz-Date=20230427T185308Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=2e56d424426c14841b0d64077795319efa893d8f859ddfd1c82726d8e5498226"}%
 ```
-
-## What's next?
-
-Explore the [Nitric framework](https://nitric.io/docs) to learn how to deploy to the cloud and much more.
 
 ## About Nitric
 

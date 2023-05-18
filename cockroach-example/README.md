@@ -18,9 +18,7 @@
 
 ## Project Description
 
-An example of fanning out processing for a simple multi-tenant application using messaging events.
-
-![diagram](./diagram.png)
+Simple example of connecting to and adding entries into a cockroach db.
 
 ## Usage
 
@@ -28,16 +26,21 @@ An example of fanning out processing for a simple multi-tenant application using
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-### Step 2: Run your project locally Nitric
+### Step 2: Configure CockroachDB db
+
+Create a .env file from .env.template and update the db.
+
+### Step 3: Run your project locally Nitric
+
+Refer to the README located in the language specific version of this project.
+
+### Step 4: Test the API
 
 ```bash
-yarn install
-yarn run dev
+curl https://localhost:4001/init
 ```
 
-### Step 3: Test the API
-
-There is a scheduled service running each hour. This means you'll have to manually trigger the service to test offline.
+Check your db in cockroach, also have a look at the log files to see that you've connected succesfully.
 
 ## About Nitric
 

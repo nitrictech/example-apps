@@ -10,16 +10,50 @@
 
 <p align="center">
   <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?sort=semver">
-  <img alt="GitHub" src="https://img.shields.io/github/license/nitrictech/nitric">
-  <!-- <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/nitrictech/cli/total"> -->
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/nitrictech/nitric/Tests?label=build">
-  <img alt="codecov" src="https://codecov.io/gh/nitrictech/nitric/branch/develop/graph/badge.svg?token=20TYFIQS2P">
-  <!-- <a href="" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a> -->
   <a href="https://twitter.com/nitric_io">
     <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/nitric_io?label=Follow&style=social">
   </a>
   <a href="https://discord.gg/Webemece5C"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord"></a>
 </p>
+
+## Project Description
+
+Check the status of a websites availability, this api responds with an up or down status.
+
+## Usage
+
+### Step 1: Install Nitric
+
+Follow the steps in the [installation guide](https://nitric.io/docs/installation)
+
+### Step 2: Run the API locally with Nitric
+
+```bash
+yarn install
+yarn run dev
+```
+
+### Step 3: Test the API
+
+Valid URL
+
+```bash
+curl --location 'http://localhost:4001/ping' \
+--header 'Content-Type: text/plain' \
+--data '{
+    "url":"www.google.com"
+}'
+```
+
+Invalid URL
+
+```bash
+curl --location 'http://localhost:4001/ping' \
+--header 'Content-Type: text/plain' \
+--data '{
+    "url":"www.invalidurl123.com"
+}'
+```
 
 ## About Nitric
 
@@ -47,26 +81,3 @@ We're completely opensource and encourage [code contributions](https://nitric.io
 - Find us on [Twitter](https://twitter.com/nitric_io)
 
 - Send us an [email](mailto:maintainers@nitric.io)
-
-## Project Description
-
-Dynamically load modules for use in a sample API developed with Nitric.
-
-## Usage
-
-### Step 1: Install Nitric
-
-Follow the steps in the [installation guide](https://nitric.io/docs/installation)
-
-<br/>
-
-### Step 2: Run the API locally with Nitric
-
-```bash
-yarn install
-yarn run dev
-```
-
-## What's next?
-
-Explore the [Nitric framework](https://nitric.io/docs) to learn how to deploy to the cloud and much more.

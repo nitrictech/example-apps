@@ -18,7 +18,7 @@
 
 ## Project Description
 
-Simple example of connecting to and adding entries into a cockroach db.
+Create an API which captures profile information using REST and handles profile images and analysis with Rekognition.
 
 ## Usage
 
@@ -26,24 +26,95 @@ Simple example of connecting to and adding entries into a cockroach db.
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-### Step 2: Configure CockroachDB db
+### Step 2: AWS Configuration
 
-Create a .env file from .env.template and update the db.
+Update env settings
+
+```bash
+mv env-template .env
+```
+
+```
+AWS_SES_REGION="us-east-1"
+AWS_SES_ACCESS_KEY_ID="..."
+AWS_SES_SECRET_ACCESS_KEY="..."
+
+SENDER_EMAIL="..."
+SYS_ADMIN_EMAIL="..."
+```
+
+> Note: Get the {{bucket-id}} from the created resource in S3 AWS Console - this is required by the request to Rekognition.
+> Note: You'll need to whitelist these emails with amazon to send emails.
 
 ### Step 3: Run your project locally Nitric
 
-```bash
-yarn install
-yarn run dev
-```
+Refer to the README located in the language specific version of this project.
 
 ### Step 4: Test the API
 
+Create a product
+
 ```bash
-curl https://localhost:4001/init
+curl --location --request POST 'https://XXXXXXXXXXXXXX.amazonaws.com/products' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+    "name": "Dog",
+    "description" : "Best friend!"
+}'
 ```
 
-Check your db in cockroach, also have a look at the log files to see that you've connected succesfully.
+```bash
+{
+    "msg": "Product with id {{id}} created."
+}
+```
+
+Get the photo upload URL
+
+```bash
+curl --location --request GET 'https://{{url}}/products/{{id}}/image/upload'
+```
+
+```bash
+{
+    "url": "..."
+}
+```
+
+Get product info (with Rekognition labels)
+
+```bash
+curl --location --request GET 'https://{{url}}/products/{{id}}'
+```
+
+```bash
+{
+    "description": "Best friend.",
+    "labels": {
+        "Labels": [
+            {
+                "Name": "Dog",
+                "Confidence": 99.73765563964844,
+                "Instances": [
+                    {
+                        "BoundingBox": {
+                            "Width": 0.7164074778556824,
+                            "Height": 0.8895376324653625,
+                            "Left": 0.1641775667667389,
+                            "Top": 0.10807080566883087
+                        },
+                        "Confidence": 99.73765563964844
+                    }
+                ]
+                ...
+                ...
+        "LabelModelVersion": "2.0"
+    },
+    "name": "Dog",
+    "rekognition": true,
+    "url": "..."
+}
+```
 
 ## About Nitric
 

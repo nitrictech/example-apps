@@ -18,9 +18,7 @@
 
 ## Project Description
 
-An example of fanning out processing for a simple multi-tenant application using messaging events.
-
-![diagram](./diagram.png)
+Create a simliarities API method which finds similarities between words in your dictionary and your query based on cosign similarities.
 
 ## Usage
 
@@ -28,16 +26,44 @@ An example of fanning out processing for a simple multi-tenant application using
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-### Step 2: Run your project locally Nitric
+### Step 2: Env variables
+
+Create .env file based on the template and update the OpenAI key - you'll need this to generate your embedding vectors
+
+### Step 3: Run your project locally Nitric
+
+Refer to the README located in the language specific version of this project.
+
+### Step 4: Test the API
 
 ```bash
-yarn install
-yarn run dev
+curl --location 'http://localhost:4001/similarity' \
+--header 'Content-Type: text/plain' \
+--data '{
+"search_term":"fritters"
+}'
 ```
 
-### Step 3: Test the API
+```bash
+{
+  "text": {
+    "1": "potatoes",
+    "6": "crispy",
+    "7": "hamburger",
+    "14": "french fries",
+    "18": "cheeseburger"
+  },
+  "similarities": {
+    "1": 0.8435876166,
+    "6": 0.8820958004,
+    "7": 0.8445682044,
+    "14": 0.8992291243,
+    "18": 0.8334017449
+  }
+}
+```
 
-There is a scheduled service running each hour. This means you'll have to manually trigger the service to test offline.
+> Note: That this example is more about illustrating vector based simliarties and assumes that your dataset is small. A more performant/cost effective solution would require pre-processed database of vector embeddings.
 
 ## About Nitric
 

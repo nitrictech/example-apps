@@ -20,7 +20,7 @@
 
 An example of fanning out processing for a simple multi-tenant application using messaging events.
 
-![diagram](./diagram.png)
+![diagram](./typescript/diagram.png)
 
 ## Usage
 
@@ -30,10 +30,7 @@ Follow the steps in the [installation guide](https://nitric.io/docs/installation
 
 ### Step 2: Run your project locally Nitric
 
-```bash
-yarn install
-yarn run dev
-```
+Refer to the README located in the language specific version of this project.
 
 ### Step 3: Test the API
 

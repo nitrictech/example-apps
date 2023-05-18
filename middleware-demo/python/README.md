@@ -1,51 +1,51 @@
-<p align="center"><a href="https://nitric.io" target="_blank"><img src="https://raw.githubusercontent.com/nitrictech/nitric/main/docs/assets/nitric-logo.svg" height="120"></a></p>
+<p align="center">
+  <a href="https://nitric.io">
+    <img src="https://raw.githubusercontent.com/nitrictech/nitric/main/docs/assets/nitric-logo.svg" width="120" alt="Nitric Logo"/>
+  </a>
+</p>
 
-## About Nitric
+<p align="center">
+  A fast & fun way to build portable cloud-native applications
+</p>
 
-This is a [Nitric](https://nitric.io) Python project, but Nitric is a framework for rapid development of cloud-native and serverless applications in many languages.
+<p align="center">
+  <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?sort=semver">
+  <a href="https://twitter.com/nitric_io">
+    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/nitric_io?label=Follow&style=social">
+  </a>
+  <a href="https://discord.gg/Webemece5C"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord"></a>
+</p>
 
-Using Nitric you define your apps in terms of the resources they need, then write the code for serverless function based APIs, event subscribers and scheduled jobs.
+## Project Description
 
-Apps built with Nitric can be deployed to AWS, Azure or Google Cloud all from the same code base so you can focus on your products, not your cloud provider.
+Demonstrate how middleware can be used with the Nitric framework to intercept requests for validation or auth.
 
-Nitric makes it easy to:
+## Usage
 
-- Create smart [serverless functions and APIs](https://nitric.io/docs/apis)
-- Build reliable distributed apps that use [events](https://nitric.io/docs/messaging/topics) and/or [queues](https://nitric.io/docs/messaging/queues)
-- Securely store, retrieve and rotate [secrets](https://nitric.io/docs/secrets)
-- Read and write files from [buckets](https://nitric.io/docs/storage)
+### Step 1: Install Nitric
 
-## Learning Nitric
+Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-Nitric provides detailed and intuitive [documentation](https://nitric.io/docs) and [guides](https://nitric.io/docs/getting-started) to help you get started quickly.
+### Step 2: Run your project locally Nitric
 
-If you'd rather chat with the maintainers or community, come and join our [Discord](https://discord.gg/Webemece5C) server, [GitHub Discussions](https://github.com/nitrictech/nitric/discussions) or find us on [Twitter](https://twitter.com/nitric_io).
-
-## Running this project
-
-To run this project you'll need the [Nitric CLI](https://nitric.io/docs/installation) installed, then you can use the CLI commands to run, build or deploy the project.
-
-Start by making sure the project's dependencies have been installed.
-
-```bash
-pipenv install --dev
-```
-
-Next, start nitric services.
+Start nitric services:
 
 ```bash
 nitric start
 ```
 
-In another terminal, run your project.
-
-> This will automatically restart when you make changes to your functions
+Install dependencies and run your project:
 
 ```bash
+pipenv install --dev
 pipenv run dev
 ```
 
 You'll see your services connect in your nitric start terminal.
+
+> This will automatically restart when you make changes to your functions
+
+### Step 3: Test the API
 
 ```bash
 curl --location 'http://localhost:4001/hello'
@@ -57,3 +57,30 @@ Check your log files for the following output:
 This is your middleware running ...
 This is  your main function running ...
 ```
+
+## About Nitric
+
+[Nitric](https://nitric.io) is a framework for rapid development of cloud-native and serverless applications. Define your apps in terms of the resources they need, then write the code for serverless function based APIs, event subscribers and scheduled jobs.
+
+Apps built with Nitric can be deployed to AWS, Azure or Google Cloud all from the same code base so you can focus on your products, not your cloud provider.
+
+Nitric makes it easy to:
+
+- Create smart serverless functions and APIs
+- Build reliable distributed apps that use events and/or queues
+- Securely store, retrieve and rotate secrets
+- Read and write files from buckets
+
+## Documentation
+
+The full documentation is available at [nitric.io/docs](https://nitric.io/docs).
+
+We're completely opensource and encourage [code contributions](https://nitric.io/docs/contributions).
+
+## Get in touch
+
+- Ask questions in [GitHub discussions](https://github.com/nitrictech/nitric/discussions)
+
+- Find us on [Twitter](https://twitter.com/nitric_io)
+
+- Send us an [email](mailto:maintainers@nitric.io)

@@ -107,10 +107,7 @@ SUPABASE_SECRET_KEY=
 
 ### Step 4: Run your project locally Nitric
 
-```bash
-yarn install
-yarn run dev
-```
+Refer to the README located in the language specific version of this project.
 
 ### Step 5: Test the API
 

@@ -10,11 +10,6 @@
 
 <p align="center">
   <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?sort=semver">
-  <img alt="GitHub" src="https://img.shields.io/github/license/nitrictech/nitric">
-  <!-- <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/nitrictech/cli/total"> -->
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/nitrictech/nitric/Tests?label=build">
-  <img alt="codecov" src="https://codecov.io/gh/nitrictech/nitric/branch/develop/graph/badge.svg?token=20TYFIQS2P">
-  <!-- <a href="" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a> -->
   <a href="https://twitter.com/nitric_io">
     <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/nitric_io?label=Follow&style=social">
   </a>
@@ -23,15 +18,13 @@
 
 ## Project Description
 
-Simple & secure direct-to-bucket uploads from modern browsers with signed URLs
+Create an API which captures profile information using graphQL.
 
 ## Usage
 
 ### Step 1: Install Nitric
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
-
-<br/>
 
 ### Step 2: Run the API locally with Nitric
 
@@ -40,9 +33,7 @@ yarn install
 yarn run dev
 ```
 
-> Note: There is a scheduled service running each hour. This means you'll have to manually trigger the service to test offline.
-
-### Step:3 Test
+### Step 3: Run your project.
 
 We can use cURL, postman or any other HTTP Client to test our application, however it's better if the client has GraphQL support.
 
@@ -148,10 +139,6 @@ curl --location -X POST \
   }
 }
 ```
-
-## What's next?
-
-Explore the [Nitric framework](https://nitric.io/docs) to learn how to deploy to the cloud and much more.
 
 ## About Nitric
 

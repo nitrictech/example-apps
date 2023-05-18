@@ -18,9 +18,7 @@
 
 ## Project Description
 
-An example of fanning out processing for a simple multi-tenant application using messaging events.
-
-![diagram](./diagram.png)
+Demonstrate how middleware can be used with the Nitric framework to intercept requests for validation or auth.
 
 ## Usage
 
@@ -30,14 +28,20 @@ Follow the steps in the [installation guide](https://nitric.io/docs/installation
 
 ### Step 2: Run your project locally Nitric
 
-```bash
-yarn install
-yarn run dev
-```
+Refer to the README located in the language specific version of this project.
 
 ### Step 3: Test the API
 
-There is a scheduled service running each hour. This means you'll have to manually trigger the service to test offline.
+```bash
+curl --location 'http://localhost:4001/hello'
+```
+
+Check your log files for the following output:
+
+```text
+This is your middleware running ...
+This is  your main function running ...
+```
 
 ## About Nitric
 

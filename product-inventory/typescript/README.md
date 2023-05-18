@@ -1,22 +1,24 @@
 <p align="center">
   <a href="https://nitric.io">
-    <img src="https://github.com/nitrictech/nitric/raw/develop/docs/assets/nitric-logo.svg" width="120" alt="Nitric Logo"/>
+    <img src="https://raw.githubusercontent.com/nitrictech/nitric/main/docs/assets/nitric-logo.svg" width="120" alt="Nitric Logo"/>
   </a>
 </p>
 
-<h3 align="center">A cloud framework with infrastructure in code</h3>
+<p align="center">
+  A fast & fun way to build portable cloud-native applications
+</p>
 
 <p align="center">
-  <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?style=for-the-badge">
-  <img alt="GitHub" src="https://img.shields.io/github/license/nitrictech/nitric?style=for-the-badge">
-  <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/nitrictech/nitric/test.yaml?branch=develop&style=for-the-badge">
-  <img alt="Codecov" src="https://img.shields.io/codecov/c/github/nitrictech/nitric?style=for-the-badge">
-  <a href="https://discord.gg/Webemece5C"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord&style=for-the-badge"></a>
+  <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/nitrictech/nitric?sort=semver">
+  <a href="https://twitter.com/nitric_io">
+    <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/nitric_io?label=Follow&style=social">
+  </a>
+  <a href="https://discord.gg/Webemece5C"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord"></a>
 </p>
 
 ## Project Description
 
-Product inventory with image upload and labels generation with Rekognition.
+Create an API which captures profile information using REST and handles profile images and analysis with Rekognition.
 
 ## Usage
 
@@ -44,20 +46,14 @@ SYS_ADMIN_EMAIL="..."
 > Note: Get the {{bucket-id}} from the created resource in S3 AWS Console - this is required by the request to Rekognition.
 > Note: You'll need to whitelist these emails with amazon to send emails.
 
-### Step 3: Run the API locally with Nitric
+### Step 3: Run your project locally Nitric
 
 ```bash
 yarn install
 yarn run dev
 ```
 
-### Step 4: Deploy to the cloud
-
-```bash
-nitric up
-```
-
-### Step 5: Consume the API
+### Step 4: Test the API
 
 Create a product
 
@@ -123,10 +119,6 @@ curl --location --request GET 'https://{{url}}/products/{{id}}'
 }
 ```
 
-## What's next?
-
-Explore the [Nitric framework](https://nitric.io/docs) to learn how to deploy to the cloud and much more.
-
 ## About Nitric
 
 [Nitric](https://nitric.io) is a framework for rapid development of cloud-native and serverless applications. Define your apps in terms of the resources they need, then write the code for serverless function based APIs, event subscribers and scheduled jobs.
@@ -146,14 +138,10 @@ The full documentation is available at [nitric.io/docs](https://nitric.io/docs).
 
 We're completely opensource and encourage [code contributions](https://nitric.io/docs/contributions).
 
-## Status
-
-Nitric is currently in Public Preview. Anyone can use or deploy applications, but work remains and changes are likely. We’d love your feedback as we build additional functionality!
-
 ## Get in touch
 
 - Ask questions in [GitHub discussions](https://github.com/nitrictech/nitric/discussions)
 
 - Find us on [Twitter](https://twitter.com/nitric_io)
 
-- Send us an [email](mailto:maintainers@nitric.io)## Description
+- Send us an [email](mailto:maintainers@nitric.io)
