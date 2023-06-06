@@ -44,3 +44,4 @@ Here you'll find examples writen with various languages including python and typ
 | [cockroach-example](./cockroach-example/)         | Simple example of connecting to and adding entries into a cockroach db.       |
 | [scheduled-tasks](./scheduled-tasks/)             | Delete the items in a bucket (e.g. S3) every 3 days.                          |
 | [neon-postgres](./neon/)                          | Simple example of connecting to and querying a neon postgres auto-scaling db. |
+| [neon-tasklist](./neon-tasklist/)                 | Create a task list with a Neon pg database.                                   |
