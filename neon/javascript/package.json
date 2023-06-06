@@ -1,0 +1,24 @@
+{
+  "name": "javascript-starter",
+  "version": "1.0.0",
+  "description": "nitric javascript starter template",
+  "main": "index.js",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@nitric/sdk": "0.12.0",
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.1.4",
+    "glob": "^10.2.2",
+    "js-yaml": "^4.1.0",
+    "nodemon": "^2.0.20",
+    "stmux": "^1.8.4",
+    "wait-port": "^1.0.1"
+  },
+  "scripts": {
+    "dev:functions": "nodemon -r dotenv/config ./index.js",
+    "dev": "stmux -w always -e ERROR -M -m beep,system -- [ -t 'Nitric: Exit using ctrl^a+k' \"nitric start\" .. \"wait-port localhost:50051 && npm run dev:functions\" ]"
+  }
+}
