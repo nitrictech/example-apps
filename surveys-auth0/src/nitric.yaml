@@ -1,0 +1,4 @@
+name: survey
+handlers:
+  - ./apis/*.ts
+  - ./handlers/*.ts
