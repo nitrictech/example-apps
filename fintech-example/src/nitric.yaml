@@ -1,0 +1,4 @@
+name: fintech-example
+handlers:
+  - ./apis/*.ts
+  - ./handlers/*.ts
