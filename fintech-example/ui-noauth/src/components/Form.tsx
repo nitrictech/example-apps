@@ -88,7 +88,7 @@ const Form: React.FC<Form> = () => {
             <span className="text-blank font-bold">{submissionId}</span>
           </div>
           <a
-            href={`${process.env.NEXT_PUBLIC_API_RECEIPT_URL}/receipts/${submissionId}`}
+            href={`${process.env.NEXT_PUBLIC_API_BASE_URL}/receipts/${submissionId}`}
             className="text-blue-600 underline"
             target="_blank"
           >

@@ -1,0 +1,4 @@
+name: prod-gcp
+provider: nitric/gcp@0.30.0-rc.7
+gcp-project-id: project-id
+region: us-west2

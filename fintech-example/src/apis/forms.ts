@@ -2,6 +2,7 @@ import { api, faas } from "@nitric/sdk";
 import { formJsonSchema } from "../forms";
 import { formStore } from "../resources";
 import { addCors, optionsHandler } from "../resources/middleware";
+import { receiptFiles } from "../resources/buckets";
 
 export const formApi = api("forms", {
   middleware: [addCors],
@@ -127,3 +128,11 @@ formApi.options("/forms/submit/:submissionId", optionsHandler);
 formApi.options("/forms/submit", optionsHandler);
 formApi.options("/forms", optionsHandler);
 formApi.options("/submissions/:email", optionsHandler);
+
+formApi.get("/receipts/:submissionId", async (ctx) => {
+  const { submissionId } = ctx.req.params;
+  ctx.res.headers["Location"] = [
+    await receiptFiles.file(`receipts/${submissionId}.pdf`).getDownloadUrl(),
+  ];
+  ctx.res.status = 303;
+});

@@ -18,8 +18,7 @@
 
 ## Project Description
 
-This sample project create an onboarding using Alloy for user verification workflows.
-Users can save and resume their form before submitting.
+This sample project create an onboarding application using Alloy for user verification workflows.
 
 ## Usage
 
@@ -27,31 +26,13 @@ Users can save and resume their form before submitting.
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-### Step 2: Setup Auth0
-
-> Note: If you don't want to use Auth, you can use the ui-noauth version of the UI. Without Auth0, there is no user session, and therefore save and resume functionality is disabled. Skip to step 4 and use the ui-noauth solution for all steps involving the UI project.
-
-1. Create an Auth0 account.
-2. Create a regular web application
-3. Disable all existing connections
-4. In Authentication -> Passwordless enable email
-5. Now head back to connections in your existing connections and enable passwordless -> email.
-
-### Step 3: Setup your creds in .env
-
-Create a copy of the env.local file in the ui project and update the value from your Auth0 profile.
-
-AUTH0_SECRET=\***\*\*\*\*\*\*\***
-AUTH0_BASE_URL=http://localhost:3000
-AUTH0_ISSUER_BASE_URL=**\*\***\*\***\*\***
-AUTH0_CLIENT_ID=**\*\***\*\***\*\***
-AUTH0_CLIENT_SECRET=**\*\*\*\***\***\*\*\*\***
-
 Then add the API BASE URL - this is defaulted, but may change if you have multiple APIs in play.
+
+### Step 2: Update API BASE in ui project .env.local
 
 NEXT_PUBLIC_API_BASE_URL=http://localhost:4001
 
-### Step 4: Run your API project locally with Nitric
+### Step 3: Run your API project locally with Nitric
 
 ```bash
 cd src
@@ -59,7 +40,7 @@ yarn install
 yarn run dev
 ```
 
-### Step 5: Run the UI
+### Step 4: Run the UI
 
 ```bash
 cd ui
