@@ -1,0 +1,5 @@
+name: nitric-koa
+handlers:
+  - functions/*.ts
+preview-features:
+  - http

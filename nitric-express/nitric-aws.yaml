@@ -1,0 +1,3 @@
+name: aws
+provider: nitric/aws@0.30.0
+region: us-east-1
