@@ -32,8 +32,8 @@ Email:
   ${primary.email}
 
 Address:
-  ${primary.address.streetNumber} ${primary.address.street} ${primary.address.city} ${primary.address.state}
-        ${primary.address.postCode}
+  ${primary.address.streetNumber} ${primary.address.street} 
+  ${primary.address.city} ${primary.address.state} ${primary.address.postCode}
 `,
         100,
         175

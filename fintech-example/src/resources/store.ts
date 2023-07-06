@@ -114,7 +114,7 @@ export const formStore = {
       removeEmptyOrNull(data)
     );
     if (!validated.success) {
-      return { ...validated };
+      return { success: false, error: { ...validated } };
     } else {
       const submissionData: FormSubission = {
         submissionId: submissionId ?? newSubmissionId(),
@@ -137,7 +137,7 @@ export const formStore = {
     }
     const validated = FormModel.safeParse(data);
     if (!validated.success) {
-      return { ...validated };
+      return { success: false, error: { ...validated } };
     } else {
       const submissionData: Submission<FormData> = {
         submissionId: submissionId ?? newSubmissionId(),
