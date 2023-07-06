@@ -33,7 +33,7 @@ const Form: React.FC<Form> = () => {
     event.preventDefault()
     console.log(event)
     const url = `${process.env.NEXT_PUBLIC_API_BASE_URL}/forms${
-      event.nativeEvent.submitter.name === 'submit' ? '/submit' : ''
+      event.nativeEvent.submitter.name === 'submit' ? '/submit' : '/save'
     }${submissionId ? `/${submissionId}` : ''}`
 
     const resp = await callApi(url, {

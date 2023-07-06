@@ -69,8 +69,8 @@ const saveHandler = async (ctx: faas.HttpContext) => {
 };
 
 // Save a form.
-formApi.post("/forms/", saveHandler);
-formApi.post("/forms/:submissionId", saveHandler);
+formApi.post("/forms/save", saveHandler);
+formApi.post("/forms/save/:submissionId", saveHandler);
 
 // Resume a form.
 formApi.get("/forms/:submissionId", async (ctx) => {
@@ -123,7 +123,8 @@ const submissionHandler = async (ctx: faas.HttpContext) => {
 formApi.post("/forms/submit/:submissionId", submissionHandler);
 formApi.post("/forms/submit", submissionHandler);
 
-formApi.options("/forms/:submissionId", optionsHandler);
+formApi.options("/forms/save:submissionId", optionsHandler);
+formApi.options("/forms/save", optionsHandler);
 formApi.options("/forms/submit/:submissionId", optionsHandler);
 formApi.options("/forms/submit", optionsHandler);
 formApi.options("/forms", optionsHandler);
