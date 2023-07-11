@@ -14,7 +14,7 @@ app.get("/upload/:id", async (req, res) => {
       url: await img.getUploadUrl(),
     });
   } catch (err) {
-    res.status = 500;
+    res.statusCode = 500
     res.json({
       message: "Error getting file URL",
     });

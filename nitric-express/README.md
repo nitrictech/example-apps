@@ -38,7 +38,7 @@ yarn run dev
 Upload url -
 
 ```bash
-curl localhost:3000/upload
+curl localhost:4001/upload/1234
 
 {"url":"http://localhost:38501/images/images/abc/photo.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=dummykey%2F20230427%2F%2Fs3%2Faws4_request&X-Amz-Date=20230427T185305Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&x-id=PutObject&X-Amz-Signature=fbf8413a9af86fc7f0a1d69a82d8044f0405f10b0fdba14689c4cb69f07aab6e"}
 ```
