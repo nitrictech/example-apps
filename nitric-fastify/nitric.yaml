@@ -1,0 +1,5 @@
+name: nitric-fastify
+handlers:
+- functions/*.ts
+preview-features:
+  - http
