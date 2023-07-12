@@ -22,15 +22,6 @@ fastify.get<{ Params: Params }>("/upload/:id", async (request, reply) => {
   }
 });
 
-const bootstrap = async (port: number) => {
-  try {
-    await fastify.listen({ port });
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-};
-
-http(bootstrap, () => {
+http(fastify, () => {
   console.log(`Application started`);
 });
