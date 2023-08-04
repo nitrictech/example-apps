@@ -50,3 +50,4 @@ Here you'll find examples writen with various languages including python and typ
 | [nitric-express](./nitric-express/)               | A secure URL upload demonstrating usage with Nitric and Express framework                           |
 | [nitric-koa](./nitric-koa/)                       | A secure URL upload demonstrating usage with Nitric and KOA framework                               |
 | [nitric-fastify](./nitric-fastify/)               | A secure URL upload demonstrating usage with Nitric and fastify                                     |
+| [websockets](./websockets/)                       | A simple msging app showcasing websockets                                                           |
