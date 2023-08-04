@@ -1,0 +1,5 @@
+name: sockets
+handlers:
+  - functions/*.ts
+preview-features:
+  - websockets
