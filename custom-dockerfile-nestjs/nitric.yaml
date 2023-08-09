@@ -1,0 +1,12 @@
+name: test-http-wrapper
+handlers:
+  - match: src/main.ts
+    type: default
+    docker:
+      # All entrypoints in the functions directory will be built using this dockerfile
+      file: ./node.dockerfile
+      args: {}
+# Enable preview feature
+preview-features:
+  - dockerfile
+  - http
