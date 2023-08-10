@@ -1,0 +1,4 @@
+name: typescript
+handlers:
+- src/services/*.ts
+preview-features: []
