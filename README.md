@@ -50,4 +50,5 @@ Here you'll find examples writen with various languages including python and typ
 | [nitric-express](./nitric-express/)               | A secure URL upload demonstrating usage with Nitric and Express framework                           |
 | [nitric-koa](./nitric-koa/)                       | A secure URL upload demonstrating usage with Nitric and KOA framework                               |
 | [nitric-fastify](./nitric-fastify/)               | A secure URL upload demonstrating usage with Nitric and fastify                                     |
-| [websockets](./websockets/)                       | A simple msging app showcasing websockets                                                           |
+| [websockets](./websockets/)                       | A basic websockets example                                                                          |
+| [real-time-chat](./realtime-chat-app/)            | A realtime chat using Websockets, Next.js, Nitric and Clerk                                         |
