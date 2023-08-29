@@ -1,0 +1,4 @@
+name: blob-processing
+handlers:
+- functions/*.ts
+preview-features: []
