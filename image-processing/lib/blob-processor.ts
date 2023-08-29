@@ -31,12 +31,11 @@ export default (name: string) => {
                 return next ? next(ctx) : ctx;
             }
         },
-        // register a worker for the upload
-        // workers are allowed to read a reference to to original file but cannot modify it (modifications must be new files)
+        // register a worker for upload events
         worker: (handler: (file: Pick<File, 'read' | 'name'>) => Promise<void>) => {
-            const operableBucket = blobBucket.for('reading');
+            const readableBucket = blobBucket.for('reading');
             eventFanout.subscribe(async ctx => {
-                await handler(operableBucket.file(ctx.req.json().payload.key))
+                await handler(readableBucket.file(ctx.req.json().payload.key))
             });
         },
         // Allow access to the underlying bucket
