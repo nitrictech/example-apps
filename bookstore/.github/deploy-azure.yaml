@@ -1,0 +1,30 @@
+name: Example Nitric AWS Deployment
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+env:
+  PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+jobs:
+  update:
+    name: Update Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Nitric CLI
+        uses: nitrictech/setup-nitric@v1
+        with:
+          version: 1.30.2
+      - name: Install dependencies
+        uses: pulumi/setup-pulumi@v2
+      - name: Checkout project
+        uses: actions/checkout@v3
+      - name: Resolve packages
+        run: npm install
+      - name: Log in to Azure
+        run: |
+          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+          az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Deploy stack to aws
+        run: nitric up -s dev -v2

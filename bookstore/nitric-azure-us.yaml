@@ -1,0 +1,5 @@
+name: azure-2
+provider: azure
+region: eastus2
+adminemail: rsiva.1211@gmail.com
+org: rsiva1211
