@@ -60,7 +60,7 @@ Refer to the README located in the language specific version of this project.
 
 ### Step 5: Test the API
 
-The best way to test your API is to use the Nitric Dev Dashboard, you can find a link to this in the window which you ran 'yarn run dev' e.g. http://localhost:49153/
+The best way to test your API is to use the Nitric Dev Dashboard, you can find a link to this in the window which you ran 'yarn dev' e.g. http://localhost:49153/
 
 > Note: The port might differ
 
@@ -84,14 +84,14 @@ Nitric makes it easy to:
 
 - Create smart serverless functions and APIs
 - Build reliable distributed apps that use events and/or queues
-- Securely store, retrieve and rotate secrets
+- Securely store and retrieve secrets
 - Read and write files from buckets
 
 ## Documentation
 
 The full documentation is available at [nitric.io/docs](https://nitric.io/docs).
 
-We're completely opensource and encourage [code contributions](https://nitric.io/docs/contributions).
+We're completely open-source and encourage [code contributions](https://nitric.io/docs/contributions).
 
 ## Get in touch
 
