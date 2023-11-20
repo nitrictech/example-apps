@@ -1,0 +1,29 @@
+{
+  "name": "typescript-starter",
+  "version": "1.0.0",
+  "description": "nitric typescript starter template",
+  "main": "index.js",
+  "private": true,
+  "resolutions": {
+    "**/node-pty": "1.1.0-beta5"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.2.3",
+    "@nitric/sdk": "0.16.0",
+    "hono": "^3.10.1"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "dotenv": "^16.0.2",
+    "glob": "^10.2.2",
+    "js-yaml": "^4.1.0",
+    "stmux": "^1.8.4",
+    "tsx": "^4.1.4",
+    "typescript": "^4.8.3",
+    "wait-port": "^1.0.1"
+  },
+  "scripts": {
+    "dev:functions": "tsx watch ./index.ts",
+    "dev": "stmux -w always -e ERROR -M -m beep,system -- [ -t 'Nitric: Exit using ctrl^a+k' \"nitric start\" .. -t 'Functions' \"wait-port localhost:50051 && npm run dev:functions\" ]"
+  }
+}

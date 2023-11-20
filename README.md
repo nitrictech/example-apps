@@ -49,6 +49,7 @@ Here you'll find examples writen with various languages including python and typ
 | [surveys-auth0](./surveys-auth0/)                 | A survey app with NextJS frontend with and without Auth0 integration to save and resume application |
 | [nitric-express](./nitric-express/)               | A secure URL upload demonstrating usage with Nitric and Express framework                           |
 | [nitric-koa](./nitric-koa/)                       | A secure URL upload demonstrating usage with Nitric and KOA framework                               |
+| [nitric-hono](./nitric-hono/)                     | A secure URL upload demonstrating usage with Nitric and Hono                                        |
 | [nitric-fastify](./nitric-fastify/)               | A secure URL upload demonstrating usage with Nitric and fastify                                     |
 | [websockets](./websockets/)                       | A basic websockets example                                                                          |
 | [real-time-chat](./realtime-chat-app/)            | A realtime chat using Websockets, Next.js, Nitric and Clerk                                         |

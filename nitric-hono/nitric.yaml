@@ -1,0 +1,5 @@
+name: nitric-hono
+handlers:
+  - functions/*.ts
+preview-features:
+  - http
