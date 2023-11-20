@@ -26,7 +26,7 @@ Demonstrate how middleware can be used with the Nitric framework to intercept re
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-### Step 2: Run your project locally Nitric
+### Step 2: Run your Nitric project locally
 
 Refer to the README located in the language specific version of this project.
 
@@ -53,14 +53,14 @@ Nitric makes it easy to:
 
 - Create smart serverless functions and APIs
 - Build reliable distributed apps that use events and/or queues
-- Securely store, retrieve and rotate secrets
+- Securely store and retrieve secrets
 - Read and write files from buckets
 
 ## Documentation
 
 The full documentation is available at [nitric.io/docs](https://nitric.io/docs).
 
-We're completely opensource and encourage [code contributions](https://nitric.io/docs/contributions).
+We're completely open-source and encourage [code contributions](https://nitric.io/docs/contributions).
 
 ## Get in touch
 

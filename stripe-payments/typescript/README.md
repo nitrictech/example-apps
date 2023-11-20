@@ -34,7 +34,7 @@ Create a .env file from .env.template and update the key. The default is a test 
 
 ```bash
 yarn install
-yarn run dev
+yarn dev
 ```
 
 ### Step 4: Run your project.
@@ -51,14 +51,14 @@ Nitric makes it easy to:
 
 - Create smart serverless functions and APIs
 - Build reliable distributed apps that use events and/or queues
-- Securely store, retrieve and rotate secrets
+- Securely store and retrieve secrets
 - Read and write files from buckets
 
 ## Documentation
 
 The full documentation is available at [nitric.io/docs](https://nitric.io/docs).
 
-We're completely opensource and encourage [code contributions](https://nitric.io/docs/contributions).
+We're completely open-source and encourage [code contributions](https://nitric.io/docs/contributions).
 
 ## Get in touch
 
