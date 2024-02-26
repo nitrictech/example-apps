@@ -1,9 +1,10 @@
-import { collection } from '@nitric/sdk';
+import { kv } from "@nitric/sdk";
 
 // The tenant interface
 export interface Tenant {
-    name: string
-    publicKey: string
+  id: string;
+  name: string;
+  publicKey: string;
 }
 
-export default collection<Tenant>('tenants');
+export default kv<Tenant>("tenants");

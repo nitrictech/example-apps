@@ -1,4 +1,6 @@
 name: survey
-handlers:
-  - ./apis/*.ts
-  - ./handlers/*.ts
+services:
+  - match: ./apis/*.ts
+    start: npm run dev:services $SERVICE_PATH
+  - match: ./handlers/*.ts
+    start: npm run dev:services $SERVICE_PATH

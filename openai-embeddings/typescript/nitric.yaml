@@ -1,3 +1,5 @@
 name: openAPI
-handlers:
-- functions/*.ts
+services:
+  - match: yarn install
+nitric start
+    start: npm run dev:services $SERVICE_PATH

@@ -8,7 +8,7 @@ Nitric is open source and available on [GitHub](https://github.com/nitrictech/ni
 ## Links
 
 - [Issues](https://github.com/nitrictech/nitric/issues) - Report or search for bugs.
-- [Discussion](https://discord.gg/Webemece5C) - Chat with the community on Discord
+- [Discussion](https://nitric.io/chat) - Chat with the community on Discord
 - [Feature Requests](https://github.com/nitrictech/nitric/discussions) - Find or create a discussion on GitHub
 
 ## Bug Reports
@@ -75,9 +75,9 @@ Returning a JSON response in my list handler doesn't work, it returns nothing an
 I created a simple function handler to set the response body to a JSON string.
 
 ```typescript
-import { api } from '@nitric/sdk';
+import { api } from "@nitric/sdk";
 
-api('public').get('/customers', (ctx) => {
+api("public").get("/customers", (ctx) => {
   // construct response for the GET: /customers request
   const responseBody = {};
   ctx.res.json(responseBody);

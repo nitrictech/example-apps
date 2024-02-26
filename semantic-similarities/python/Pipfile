@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "python starter"
+
+[packages]
+nitric = "==0.11.0"
+python-dotenv = "*"
+pandas = "*"
+openai = "*"
+numpy = "*"
+
+[dev-packages]
+watchdog = "*"

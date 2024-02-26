@@ -1,15 +1,16 @@
 import { createEmailRequest, sendEmail } from "../common/email";
 import { custCreateSub } from "../common/resources";
 
-custCreateSub.subscribe(async (ctx) => { 
+custCreateSub.subscribe(async (ctx) => {
+  const { template, subject, recipient } = ctx.req.json();
   // Send the email notification
   sendEmail(
     createEmailRequest({
       sender: process.env.SENDER_EMAIL as string,
-      recipient: [ctx.req.json().value.recipient],
+      recipient: [recipient],
       body: "",
-      html: ctx.req.json().value.template,
-      subject: ctx.req.json().value.subject,
+      html: template,
+      subject: subject,
     })
   );
   return ctx;

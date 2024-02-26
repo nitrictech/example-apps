@@ -6,11 +6,6 @@ import { Request } from 'express';
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
-  @Get('/profiles')
-  async getProfiles() {
-    return await this.profileService.getProfiles();
-  }
-
   @Get('/profile/:id')
   async getProfile(@Param('id') id: string) {
     return await this.profileService.getProfile(id);

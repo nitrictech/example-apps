@@ -8,8 +8,5 @@ nitric = "==0.11.0"
 common = {editable = true, path = "./common"}
 pytest = "*"
 
-[scripts]
-dev = "watchmedo auto-restart -p '*.py' -R python index.py --"
-
 [dev-packages]
 watchdog = "*"

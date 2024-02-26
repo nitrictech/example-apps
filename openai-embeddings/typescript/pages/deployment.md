@@ -39,7 +39,7 @@ When deploying the application, you can add extra configuration for specific fun
 
 ```yaml
 name: project
-provider: gcp
+provider: gcp@0.35.0
 region: australia-southeast1
 project: project-id-123456
 config:

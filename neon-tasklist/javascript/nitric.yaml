@@ -1,3 +1,4 @@
 name: echo
-handlers:
-  - functions/*.js
+services:
+  - match: services/*.js
+    start: npm run dev:services $SERVICE_PATH

@@ -19,7 +19,7 @@ The following runtimes are currently supported or are in development:
 | [JVM](https://github.com/nitrictech/jvm-sdk)       | Experimental   |
 | [C#](https://github.com/nitrictech/dotnet-sdk)     | In Development |
 
-If a language you want isn't listed, come chat with us on [Discord](https://discord.gg/Webemece5C).
+If a language you want isn't listed, come chat with us on [Discord](https://nitric.io/chat).
 
 Alternatively, feel free to develop your own SDKs. Nitric is completely [open source](https://github.com/nitrictech) so you can use any of the other SDKs linked above as a reference.
 

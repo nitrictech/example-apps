@@ -1,0 +1,2 @@
+provider: aws@v1.0.0
+region: us-east-1

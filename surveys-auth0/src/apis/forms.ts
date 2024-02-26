@@ -1,4 +1,4 @@
-import { faas, api } from "@nitric/sdk";
+import { HttpContext, api } from "@nitric/sdk";
 import { surveyJsonSchema } from "../forms";
 import { surveyStore } from "../resources";
 import { addCors, optionsHandler } from "../resources/middleware";
@@ -46,7 +46,7 @@ formApi.get("/submissions/:email", async (ctx) => {
   }
 });
 
-const saveHandler = async (ctx: faas.HttpContext) => {
+const saveHandler = async (ctx: HttpContext) => {
   const { submissionId } = ctx.req.params;
   try {
     const result = await surveyStore.save(ctx.req.json(), submissionId);
@@ -95,7 +95,7 @@ formApi.get("/forms/:submissionId", async (ctx) => {
   }
 });
 
-const submissionHandler = async (ctx: faas.HttpContext) => {
+const submissionHandler = async (ctx: HttpContext) => {
   const { submissionId } = ctx.req.params;
   try {
     const result = await surveyStore.submit(ctx.req.json(), submissionId);

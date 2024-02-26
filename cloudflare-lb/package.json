@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
-    "@nitric/sdk": "0.12.1"
+    "@nitric/sdk": "1.0.1"
   },
   "devDependencies": {
     "@pulumi/aws": "^5.32.0",
@@ -23,8 +23,6 @@
     "yaml": "^2.2.1"
   },
   "scripts": {
-    "dev:functions": "nodemon -r dotenv/config ./index.ts",
-    "dev": "stmux -w always -e ERROR -M -m beep,system -- [ -t 'Nitric: Exit using ctrl^a+k' \"nitric start\" .. -t 'Functions' \"wait-port localhost:50051 && npm run dev:functions\" ]",
     "deploy:lb": "ts-node ./infra/up.ts",
     "destroy:lb": "ts-node ./infra/down.ts"
   }

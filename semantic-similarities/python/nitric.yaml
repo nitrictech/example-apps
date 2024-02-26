@@ -1,0 +1,4 @@
+name: symantic-simliarties
+services:
+  - match: services/*.py
+    start: watchmedo auto-restart -p '*.py' -R python {{filename}}

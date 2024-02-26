@@ -13,7 +13,7 @@
   <a href="https://twitter.com/nitric_io">
     <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/nitric_io?label=Follow&style=social">
   </a>
-  <a href="https://discord.gg/Webemece5C"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord"></a>
+  <a href="https://nitric.io/chat"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord"></a>
 </p>
 
 ## Project Description
@@ -109,7 +109,7 @@ SUPABASE_SECRET_KEY=
 
 ```bash
 yarn install
-yarn dev
+nitric start
 ```
 
 ### Step 5: Test the API
