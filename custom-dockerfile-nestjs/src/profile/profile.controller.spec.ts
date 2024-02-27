@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProfileController } from './profile.controller';
 import { ProfileService } from './profile.service';
-import { CollectionResource } from '@nitric/sdk';
+import { KeyValueStoreResource } from '@nitric/sdk';
 
 describe('AppController', () => {
   let profileController: ProfileController;
@@ -14,7 +14,7 @@ describe('AppController', () => {
       providers: [ProfileService],
     }).compile();
 
-    collectionSpy = jest.spyOn(CollectionResource.prototype, 'for');
+    collectionSpy = jest.spyOn(KeyValueStoreResource.prototype, 'for');
 
     profileController = app.get<ProfileController>(ProfileController);
     profileService = app.get<ProfileService>(ProfileService);

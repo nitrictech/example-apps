@@ -20,10 +20,6 @@ type StoreResult =
   | { success: true; submissionId: string }
   | { success: false; error: any };
 
-type FindResult =
-  | { found: false; reason: "not found" | "already submitted" }
-  | { found: true; txn: SurveySubmission };
-
 const getSubmission = async (
   submissionId?: string
 ): Promise<SurveySubmission | undefined> => {
@@ -31,7 +27,8 @@ const getSubmission = async (
     return;
   }
   try {
-    return await surveyCollection.doc(submissionId).get();
+    const allSubmissions = await surveyCollection.get("submissions");
+    return allSubmissions.find((s) => s.submissionId === submissionId);
   } catch (err) {
     return;
   }
@@ -40,8 +37,7 @@ const getSubmission = async (
 // TODO: Remove me - this is a convenience method for development...
 const getAllSubmissions = async () => {
   try {
-    const submissionQuery = surveyCollection.query();
-    return await submissionQuery.fetch();
+    return await surveyCollection.get("submissions");
   } catch (err) {
     return;
   }
@@ -50,12 +46,7 @@ const getAllSubmissions = async () => {
 // TODO: Remove me - this is a convenience method for development...
 const deleteAllSubmissions = async () => {
   try {
-    const submissionQuery = surveyCollection.query();
-    const results = await submissionQuery.fetch();
-
-    for (const a of results.documents) {
-      await surveyCollection.doc(a.id).delete();
-    }
+    await surveyCollection.delete("submissions");
   } catch (err) {
     return;
   }
@@ -67,10 +58,9 @@ const getSubmissionIdsByEmail = async (email?: string) => {
     return;
   }
   try {
-    const submissionQuery = surveyCollection.query();
-    const results = await submissionQuery.fetch();
+    const results = await surveyCollection.get("submissions");
 
-    const collectedData = results.documents
+    const collectedData = results
       .filter(
         (doc) =>
           doc?.content?.data?.primary?.email === email &&
@@ -121,9 +111,8 @@ export const surveyStore = {
         status: "saved",
         data: validated.data,
       };
-      await surveyCollection
-        .doc(submissionData.submissionId)
-        .set(submissionData);
+      const allSurveys = await surveyCollection.get("submissions");
+      await surveyCollection.set([...allSurveys, submissionData]);
       return { success: true, submissionId: submissionData.submissionId };
     }
   },
@@ -144,9 +133,8 @@ export const surveyStore = {
         status: "submitted",
         data: validated.data,
       };
-      await surveyCollection
-        .doc(submissionData.submissionId)
-        .set(submissionData);
+      const allSurveys = await surveyCollection.get("submissions");
+      await surveyCollection.set([...allSurveys, submissionData]);
       await submissionEvents.publish(submissionData);
       return { success: true, submissionId: submissionData.submissionId };
     }

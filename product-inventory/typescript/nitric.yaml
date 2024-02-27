@@ -1,3 +1,4 @@
 name: inventory
-handlers:
-  - functions/*.ts
+services:
+  - match: services/*.ts
+    start: nodemon -r dotenv/config $SERVICE_PATH
