@@ -1,3 +1,0 @@
-name: profile-api-graphql
-handlers:
-- functions/*.py

@@ -1,12 +1,10 @@
 name: test-http-wrapper
-handlers:
+services:
   - match: src/main.ts
+    start: yarn start:dev
     type: default
-    docker:
-      # All entrypoints in the functions directory will be built using this dockerfile
-      file: ./node.dockerfile
-      args: {}
-# Enable preview feature
-preview-features:
-  - dockerfile
-  - http
+    runtime: docker-wrapper
+runtimes:
+  docker-wrapper:
+    dockerfile: ./node.dockerfile
+    args: {}

@@ -1,5 +1,4 @@
 name: nitric-express
-handlers:
-  - functions/*.ts
-preview-features:
-  - http
+services:
+  - match: services/*.ts
+    start: npm run dev:services $SERVICE_PATH

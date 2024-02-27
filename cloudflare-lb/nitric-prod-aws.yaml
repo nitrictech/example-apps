@@ -1,3 +1,0 @@
-name: prod-aws
-provider: nitric/aws@0.29.0
-region: us-east-1

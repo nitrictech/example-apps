@@ -2,11 +2,9 @@ import { http } from '@nitric/sdk';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
-async function listen(port: number) {
+async function bootstrap(port: number) {
   const app = await NestFactory.create(AppModule);
-  await app.listen(port);
-
-  console.log(`Application listening on ${port}`);
+  return await app.listen(port);
 }
 
-http(listen);
+http(bootstrap);

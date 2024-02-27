@@ -1,4 +1,4 @@
-import { topic, api, bucket, collection } from "@nitric/sdk";
+import { topic, api, bucket, kv } from "@nitric/sdk";
 import { Rekognition } from "aws-sdk";
 
 // Retrieve SES configuration from ENV.
@@ -12,8 +12,8 @@ function getConfig(): Rekognition.Types.ClientConfiguration {
 
 export const rekognition = new Rekognition(getConfig());
 
-// Collections
-export const products = collection("products").for("writing", "reading");
+// KV Stores
+export const products = kv("products").for("setting", "getting");
 
 // API
 export const inventoryApi = api("inventory");
