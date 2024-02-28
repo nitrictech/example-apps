@@ -1,4 +1,4 @@
 name: inventory
 services:
-  - match: services/*.ts
-    start: nodemon -r dotenv/config $SERVICE_PATH
+  - match: ./services/*.ts
+    start: npm run dev:services $SERVICE_PATH

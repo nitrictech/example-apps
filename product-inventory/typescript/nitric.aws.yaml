@@ -1,2 +1,2 @@
-provider: aws@1.0.2
+provider: nitric/aws@1.0.4
 region: us-east-1

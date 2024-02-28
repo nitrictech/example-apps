@@ -1,5 +1,8 @@
-import { SendEmailRequest, SendEmailResponse } from "@aws-sdk/client-ses";
-import { SES, AWSError } from "aws-sdk";
+import {
+  SendEmailCommand,
+  SendEmailRequest,
+  SESClient,
+} from "@aws-sdk/client-ses";
 
 // Options required to create an email request
 export interface EmailOpts {
@@ -36,24 +39,16 @@ export function createEmailRequest(opts: EmailOpts): SendEmailRequest {
   };
 }
 
-// Retrieve SES configuration from ENV.
-export function getSESConfig(): SES.Types.ClientConfiguration {
-  return {
-    accessKeyId: process.env.AWS_SES_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SES_SECRET_ACCESS_KEY,
-    region: process.env.AWS_SES_REGION,
-  };
-}
-
 // Attempt to send an email
-export function sendEmail(params: SendEmailRequest) {
-  const ses = new SES(getSESConfig());
-  ses.sendEmail(params, (err: AWSError, data: SendEmailResponse) => {
-    if (err) {
-      //throw new Error(`Email failed to send: ${err.message}`);
-      console.log(`Message failed to send: ${err.message}`);
-    } else {
-      console.log(`Message sent: ${data.MessageId}`);
-    }
-  });
+export async function sendEmail(params: SendEmailRequest) {
+  const sesClient = new SESClient({ region: process.env.AWS_SES_REGION });
+
+  const command = new SendEmailCommand(params);
+
+  try {
+    const data = await sesClient.send(command);
+    console.log(`Message sent: ${data.MessageId}`);
+  } catch (error) {
+    console.log(`Message failed to send: ${error.message}`);
+  }
 }
