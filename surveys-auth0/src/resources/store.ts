@@ -1,4 +1,4 @@
-import { collection } from "@nitric/sdk";
+import { kv } from "@nitric/sdk";
 import { v4 as uuid } from "uuid";
 import { FormData, FormDataPartial, FormModel, Submission } from "../forms";
 import { submissionTopic } from "./topics";
@@ -10,11 +10,30 @@ const newSubmissionId = (): string => {
   return uuid().split("-")[0];
 };
 
-const surveyCollection = collection<SurveySubmission>("submissions").for(
-  "writing",
-  "reading",
-  "deleting"
-);
+const surveyKVstore = kv("profiles").for("getting", "setting");
+
+// Helper function to get current surveys
+async function getSurveys() {
+  try {
+    const serializedList = await surveyKVstore.get("surveys");
+    return serializedList && serializedList["ids"]
+      ? JSON.parse(serializedList["ids"])
+      : [];
+  } catch (error) {
+    await surveyKVstore.set("surveys", { ids: [] });
+    return [];
+  }
+}
+
+// Helper function to update surveys list
+async function updateSurveys(surveyList: Array<String>) {
+  try {
+    const updatedSerializedList = JSON.stringify(surveyList);
+    await surveyKVstore.set("surveys", { ids: updatedSerializedList });
+  } catch (error) {
+    console.error("Error updating surveys:", error);
+  }
+}
 
 type StoreResult =
   | { success: true; submissionId: string }
@@ -27,8 +46,10 @@ const getSubmission = async (
     return;
   }
   try {
-    const allSubmissions = await surveyCollection.get("submissions");
-    return allSubmissions.find((s) => s.submissionId === submissionId);
+    const allSubmissions = await getSurveys();
+    return allSubmissions.find(
+      (profile: { id: any }) => profile.id === submissionId
+    );
   } catch (err) {
     return;
   }
@@ -37,7 +58,7 @@ const getSubmission = async (
 // TODO: Remove me - this is a convenience method for development...
 const getAllSubmissions = async () => {
   try {
-    return await surveyCollection.get("submissions");
+    return await getSurveys();
   } catch (err) {
     return;
   }
@@ -46,7 +67,7 @@ const getAllSubmissions = async () => {
 // TODO: Remove me - this is a convenience method for development...
 const deleteAllSubmissions = async () => {
   try {
-    await surveyCollection.delete("submissions");
+    await updateSurveys([]);
   } catch (err) {
     return;
   }
@@ -58,19 +79,13 @@ const getSubmissionIdsByEmail = async (email?: string) => {
     return;
   }
   try {
-    const results = await surveyCollection.get("submissions");
+    const results = await getSurveys();
 
-    const collectedData = results
-      .filter(
-        (doc) =>
-          doc?.content?.data?.primary?.email === email &&
-          doc?.content?.status == "saved"
-      )
-      .map((doc) => ({
-        email: doc?.content?.data?.primary?.email,
-        id: doc?.content?.submissionId,
-      }));
-    return collectedData;
+    const survey = results.find(
+      (s: SurveySubmission) => s.data.primary?.email === email
+    );
+
+    return survey;
   } catch (err) {
     return;
   }
@@ -90,6 +105,7 @@ export const surveyStore = {
   getSubmissions: getAllSubmissions,
   reset: deleteAllSubmissions,
   getSubmissionsByEmail: getSubmissionIdsByEmail,
+
   save: async (data: any, submissionId?: string): Promise<StoreResult> => {
     const existing = await getSubmission(submissionId);
     if (submissionId && !existing) {
@@ -111,8 +127,10 @@ export const surveyStore = {
         status: "saved",
         data: validated.data,
       };
-      const allSurveys = await surveyCollection.get("submissions");
-      await surveyCollection.set([...allSurveys, submissionData]);
+
+      const allSurveys = await getSurveys();
+      allSurveys.push(submissionData);
+      await updateSurveys(allSurveys);
       return { success: true, submissionId: submissionData.submissionId };
     }
   },
@@ -133,8 +151,9 @@ export const surveyStore = {
         status: "submitted",
         data: validated.data,
       };
-      const allSurveys = await surveyCollection.get("submissions");
-      await surveyCollection.set([...allSurveys, submissionData]);
+      const allSurveys = await getSurveys();
+      allSurveys.push(submissionData);
+      await updateSurveys(allSurveys);
       await submissionEvents.publish(submissionData);
       return { success: true, submissionId: submissionData.submissionId };
     }

@@ -3,9 +3,9 @@ import { submissionTopic } from "../resources";
 import { receiptFiles } from "../resources/buckets";
 
 submissionTopic.subscribe(async (ctx) => {
-  const submission = ctx.req.json().payload;
+  const submission = ctx.req.json();
 
-  const path = `receipts/${submission.submissionId}.pdf`;
+  const path = `${submission.submissionId}.pdf`;
 
   const pdfContent = await buildReceipt(submission.data);
   await receiptFiles.file(path).write(pdfContent);
