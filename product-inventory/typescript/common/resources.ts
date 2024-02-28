@@ -1,16 +1,12 @@
 import { topic, api, bucket, kv } from "@nitric/sdk";
-import { Rekognition } from "aws-sdk";
+import {
+  RekognitionClient,
+  DetectLabelsCommand,
+} from "@aws-sdk/client-rekognition";
 
-// Retrieve SES configuration from ENV.
-function getConfig(): Rekognition.Types.ClientConfiguration {
-  return {
-    accessKeyId: process.env.AWS_SES_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SES_SECRET_ACCESS_KEY,
-    region: process.env.AWS_SES_REGION,
-  };
-}
-
-export const rekognition = new Rekognition(getConfig());
+export const rekognition = new RekognitionClient({
+  region: process.env.AWS_SES_REGION,
+});
 
 // KV Stores
 export const products = kv("products").for("setting", "getting");
@@ -27,16 +23,23 @@ export const inventorySub = topic("topic");
 export const bucketName = "images";
 export const imageBucket = bucket(bucketName).for("reading", "writing");
 
-export const recognize = async (name: string) =>
-  rekognition
-    .detectLabels({
-      Image: {
-        S3Object: {
-          Bucket: process.env.BUCKETNAME,
-          Name: name,
-        },
+export const recognize = async (name: string) => {
+  const command = new DetectLabelsCommand({
+    Image: {
+      S3Object: {
+        Bucket: process.env.BUCKETNAME,
+        Name: name,
       },
-      MaxLabels: 10,
-      MinConfidence: 50,
-    })
-    .promise();
+    },
+    MaxLabels: 10,
+    MinConfidence: 50,
+  });
+
+  try {
+    const response = await rekognition.send(command);
+    return response;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

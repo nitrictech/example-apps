@@ -5,7 +5,7 @@ import {
   inventoryPub,
   recognize,
 } from "../common/resources";
-import { uuid } from "uuidv4";
+import { v4 as uuid } from "uuid";
 
 // Define our profile contents
 interface Product {

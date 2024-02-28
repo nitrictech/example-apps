@@ -2,12 +2,11 @@
   "name": "typescript-starter",
   "version": "1.0.0",
   "description": "nitric typescript starter template",
-  "main": "index.js",
   "private": true,
   "dependencies": {
+    "@aws-sdk/client-rekognition": "^3.523.0",
     "@aws-sdk/client-ses": "^3.121.0",
     "@nitric/sdk": "1.0.1",
-    "aws-sdk": "^2.1363.0",
     "mustache": "^4.2.0",
     "uuidv4": "^6.2.13"
   },
