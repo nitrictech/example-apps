@@ -9,7 +9,7 @@ const receiptApi = api("receipts", {
 receiptApi.get("/receipts/:submissionId", async (ctx) => {
   const { submissionId } = ctx.req.params;
   ctx.res.headers["Location"] = [
-    await receiptFiles.file(`receipts/${submissionId}.pdf`).getDownloadUrl(),
+    await receiptFiles.file(`${submissionId}.pdf`).getDownloadUrl(),
   ];
   ctx.res.status = 303;
 });

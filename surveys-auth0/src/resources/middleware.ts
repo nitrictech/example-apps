@@ -1,7 +1,10 @@
-import { faas } from "@nitric/sdk";
+import { HttpContext, HttpMiddleware } from "@nitric/sdk";
 
 // Add cors headers to responses
-export const addCors: faas.HttpMiddleware = async (ctx, next) => {
+export const addCors: HttpMiddleware = (
+  ctx: HttpContext,
+  next?: HttpMiddleware
+) => {
   ctx.res.headers["Access-Control-Allow-Origin"] = ["*"];
   ctx.res.headers["Access-Control-Max-Age"] = ["7200"];
   ctx.res.headers["Access-Control-Allow-Headers"] = [
@@ -15,7 +18,11 @@ export const addCors: faas.HttpMiddleware = async (ctx, next) => {
 };
 
 // Handle options/preflight requests
-export const optionsHandler: faas.HttpMiddleware = async (ctx, next) => {
+
+export const optionsHandler: HttpMiddleware = (
+  ctx: HttpContext,
+  next?: HttpMiddleware
+) => {
   if (ctx.req.method == "OPTIONS") {
     ctx.res.headers["Content-Type"] = ["text/html; charset=ascii"];
     ctx.res.body = "OK";
