@@ -4,10 +4,8 @@ verify_ssl = true
 name = "python starter"
 
 [packages]
-nitric = "==1.0.1"
-google-api-python-client = "*"
-google-auth-httplib2 = "*"
-google-auth-oauthlib = "*"
+nitric = "==1.0.2"
+firebase-admin = "*"
 
 [scripts]
 dev = "watchmedo auto-restart -p '*.py' -R python -- -u"

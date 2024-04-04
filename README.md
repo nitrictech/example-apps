@@ -28,10 +28,9 @@ The projects are created with our latest version `v1`.
 
 # Project Summary
 
-## TypeScript
-
 | Project Name                                  | Description                                                                                         |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [auth-firebase](./auth-firebase/)             | Integrate with Firebase Auth                                                                        |
 | [website-status](./website-status/)           | Perform a ping to check tosee if URL is available                                                   |
 | [openai-embeddings](./openai-embeddings/)     | Populate and query a vector db with embeddings of the nitric docs from openai                       |
 | [middleware demo](./middleware-demo/)         | A simple example of middleware handlers                                                             |
