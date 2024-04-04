@@ -53,3 +53,4 @@ The projects are created with our latest version `v1`.
 | [nitric-fastify](./nitric-fastify/)           | A secure URL upload demonstrating usage with Nitric and fastify                                     |
 | [websockets](./websockets/)                   | A basic websockets example                                                                          |
 | [real-time-chat](./realtime-chat-app/)        | A realtime chat using Websockets, Next.js, Nitric and Clerk                                         |
+| [scheduled-report](./scheduled-report/)       | A scheduled report generated with Google Sheets and shared with Google Drive                        |
