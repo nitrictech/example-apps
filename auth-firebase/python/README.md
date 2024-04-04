@@ -18,7 +18,9 @@
 
 ## Project Description
 
-Generate a scheduled report with Google Sheets and share it with Google Drive.
+Verify Firebase ID Tokens with Nitric API middleware.
+
+> Note: This is a demonstration of verifying ID tokens from the Firebase Client SDKs.
 
 ## Usage
 
@@ -26,29 +28,45 @@ Generate a scheduled report with Google Sheets and share it with Google Drive.
 
 Follow the steps in the [installation guide](https://nitric.io/docs/installation)
 
-### Step 2: Create Google credentials file and update environment variables
+### Step 2: Setup Firebase
 
-1. Login into Google Cloud and create a new project.
-2. Ensure the Google Sheets and Drive APIs are enabled for your project.
-3. Navigate to "IAM & Admin" > "Service Accounts".
-   Click "Create Service Account", enter the account details, and confirm by clicking "Create".
-4. Inside the service account details, go to the "Keys" section.
-   Select "Add Key" > "Create new key", choose "JSON", and click "Create" to download the credentials file.
-5. Rename env.template to .env and update the values.
+To run this example you need a Firebase project. You can create one from the [Firebase console](https://console.firebase.google.com/).
 
-```bash
-GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service-account-file.json
-ADMIN_EMAIL=admin@example.com
-```
+Because this app contains both a frontend and a backend, it requires both Admin SDK and Client SDK credentials.
 
-### Step 3: Run your Nitric project locally
+- You can get your client credentials from the Firebase project settings under the `General` tab
+
+  <img src="../assets/firebase-web-app.png" width="400" alt="Firebase Client"/>
+
+- You can get your admin credentials from the Firebase project settings under the `Service accounts` tab.
+
+  <img src="../assets/firebase-service-account.png" width="400" alt="Firebase Service Account"/>
+
+Update your client credentials in `frontend/src/lib/firebase.ts` and your admin service account credentials in your `.env` as the `GOOGLE_APPLICATION_CREDENTIALS_JSON` variable with your own.
+
+### Step 3: Add Google as a Sign-in Provider
+
+Add Google as a Sign-in method in your Firebase project. This is in the [Firebase Console](https://console.firebase.google.com) under Build -> Authentication -> Sign-in method.
+
+### Step 4: Run your Nitric project locally
 
 ```bash
 pipenv install --dev
 nitric start
 ```
 
-The schedule can be triggered from the local dashboard.
+### Step 5: Run your frontend locally
+
+```bash
+yarn install
+yarn dev
+```
+
+## What about SSR?
+
+This example demonstrates verifying ID Token from Firebase Client SDKS. However if you want to communicate Server-to-Server (for example with a SSR app) then you can [verify session cookies](https://firebase.google.com/docs/auth/admin/manage-cookies) instead.
+
+You could modify this [Astro SSR example](https://github.com/kevinzunigacuellar/astro-firebase) and then pass the created session cookie via a header to your Nitric API. Then simply use the `verifySessionCookie` method in your middleware.
 
 ## About Nitric
 
@@ -72,7 +90,6 @@ We're completely open-source and encourage [code contributions](https://nitric.i
 ## Get in touch
 
 - Ask questions in [GitHub discussions](https://github.com/nitrictech/nitric/discussions)
-
 - Find us on [Twitter](https://twitter.com/nitric_io)
-
 - Send us an [email](mailto:maintainers@nitric.io)
+- Jump into our [Discord server](https://nitric.io/chat)
