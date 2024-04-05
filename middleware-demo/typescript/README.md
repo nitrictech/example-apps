@@ -72,3 +72,5 @@ We're completely open-source and encourage [code contributions](https://nitric.i
 - Find us on [Twitter](https://twitter.com/nitric_io)
 
 - Send us an [email](mailto:maintainers@nitric.io)
+
+- Jump into our [Discord server](https://nitric.io/chat)
