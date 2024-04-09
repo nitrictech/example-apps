@@ -26,28 +26,7 @@ This application monitors website uptime through event-driven mechanisms, utiliz
 
 ## Usage
 
-### Step 1: Install Nitric
-
-Follow the steps in the [installation guide](https://nitric.io/docs/installation)
-
-### Step 2: Configure Environment Variables
-
-- Create a `frontend/.env` from `frontend/.env.example` and update your base API URL as `NITRIC_API_BASE_URL`.
-
-- Create a `.env` file from `.env.example` and add your [Discord Websocket URL](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
-
-### Step 3: Run your Nitric project locally
-
-Refer to the README located in the language specific version of this project.
-
-### Step 4: Run your frontend locally
-
-Inside the `/frontend` directory:
-
-```bash
-yarn install
-yarn dev
-```
+Refer to the official [uptime-monitoring repository](https://github.com/nitrictech/uptime-monitoring) for detailed instructions on running it locally and deploying it to a production environment.
 
 ## About Nitric
 
