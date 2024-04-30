@@ -16,6 +16,8 @@
   <a href="https://nitric.io/chat"><img alt="Discord" src="https://img.shields.io/discord/955259353043173427?label=discord"></a>
 </p>
 
+> 🚧 This repository is no longer actively maintained, for up-to-date examples see our [examples repo](https://github.com/nitrictech/examples) 🚧
+
 # Nitric Examples
 
 Example applications with the Nitric Framework demonstrating 'Infrastructure in code'.
